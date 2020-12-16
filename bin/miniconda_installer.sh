@@ -1,6 +1,9 @@
 #!/bin/bash
 
-wget -O miniconda.sh https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh --output miniconda.sh
+if [ ! -f miniconda.sh ]; then
+    echo "Failed to download latest miniconda script!"
+fi
 bash miniconda.sh -b -p ./miniconda
 source miniconda/bin/activate
 conda init # For bash
