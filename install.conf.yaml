@@ -1,0 +1,15 @@
+- clean: ['~']
+
+- defaults:
+    link:
+        create: true
+        relink: true
+
+- link:
+    ~/.gitconfig: gitconfig
+    ~/.ssh/config:
+        path: ssh/config
+    ~/.config/fish/functions/: 
+        glob: true
+        path: fish/functions/*
+

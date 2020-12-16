@@ -1,0 +1,14 @@
+Host cluster.ml.tu-berlin.de
+  HostName cluster.ml.tu-berlin.de
+  User pml_02
+
+Host sshgate
+  HostName sshgate.tu-berlin.de
+  User k.clasen
+
+Host cluster
+  HostName gateway.hpc.tu-berlin.de
+  User k.clasen
+  ProxyJump sshgate
+
+
