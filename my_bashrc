@@ -1,0 +1,15 @@
+# shellcheck shell=bash
+# should be loaded by bashrc
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+then
+    if command -v fish &> /dev/null; then
+        exec fish
+    fi
+fi

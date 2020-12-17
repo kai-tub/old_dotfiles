@@ -12,4 +12,22 @@
     ~/.config/fish/functions/: 
         glob: true
         path: fish/functions/*
+    ~/bin:
+        glob: true
+        path: bin/*
+    ~/.conda_envs:
+        glob: true
+        path: conda_envs/*
+    ~/.my_bashrc:
+        path: my_bashrc
+    ~/.jupyter/lab/user-settings:
+        glob: true
+        path: jupyter_lab_user_settings/
 
+- shell:
+    - git submodule sync --recursive
+    - git submodule update --init --recursive
+    - >
+        git clean -f -x - d
+        update-golang
+    - echo "To update/install `golang` run `update-golang.sh` script with `sudo`"

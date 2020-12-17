@@ -1,0 +1,12 @@
+name: lab
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - black
+  - isort
+  - jupyter
+  - jupyterlab
+  - jupyterlab-git
+  - jupyterlab_code_formatter
+  - nodejs
