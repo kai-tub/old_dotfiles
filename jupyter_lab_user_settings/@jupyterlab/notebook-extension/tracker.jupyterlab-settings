@@ -1,0 +1,11 @@
+{
+    "codeCellConfig": {
+        "fontFamily": "Cascadia Code PL",
+        "fontSize": 14,
+    },
+        
+    "markdownCellConfig": {
+        "fontFamily": "Cascadia Code PL",
+        "fontSize": 14
+    }
+}
