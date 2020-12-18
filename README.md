@@ -10,13 +10,7 @@ packages have to be installed:
 
 ## Fresh-install
 1. `./install`
-1. `bash bin/install_cascadia_fonts.sh`
-1. `bash bin/download_powerline-go.sh`
-1. `python bin/append_to_shellfile.py`
-1. `bash bin/miniconda_installer.sh`
+1. `cd ~` 
 1. `bash bin/create_conda_envs.sh`
-1. `cd` to local bin folder: `bash bin/link_fish_here.sh`
-
-
-### TODO:
-Automatically add `my_bashrc` somehow.
+1. `bash bin/link_fish_here.sh`
+1. `install_lab_extensions.sh` to desired environments

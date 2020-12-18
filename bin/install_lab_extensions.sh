@@ -21,7 +21,6 @@ set -e
 # Understand why VIM only works partially
 jupyter labextension install @ryantam626/jupyterlab_code_formatter
 jupyter labextension install nbdime-jupyterlab
-# TODO: Install missing conda dependencies, if necessary
 jupyter serverextension enable --py jupyterlab_code_formatter
 # See: https://jupyterlab-code-formatter.readthedocs.io/en/latest/faq.html#error-when-writing-grammar-tables
 python -c "import black; black.CACHE_DIR.mkdir(parents=True, exist_ok=True)"

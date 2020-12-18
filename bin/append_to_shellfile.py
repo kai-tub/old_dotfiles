@@ -28,8 +28,10 @@ def main(target: str = "~/.bashrc"):
     content = file.read_text()
     
     if RE_PATTERN.search(content) is None:
+        print("\tWriting payload for the first time.")
         file.write_text(f"{content}\n{payload}\n")
     else:
+        print("\tOverwriting old payload")
         file.write_text(RE_PATTERN.sub(payload, content))
 
 if __name__ == "__main__":

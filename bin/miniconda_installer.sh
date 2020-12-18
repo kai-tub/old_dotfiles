@@ -11,12 +11,15 @@ conda_init(){
     conda init fish # For fish
 }
 
-
-if [ -d "$target_dir" ]; then
+if command -v conda &> /dev/null; then
     echo "Miniconda already installed"
-    echo "Will reinit shells now"
     conda_init
     exit 0
+fi
+
+if [ -d "$target_dir" ]; then
+    echo "$target_dir directory already exists!"
+    exit 1
 fi
 
 tmp_dir=$(mktemp -d -t miniconda-installer-XXXXXXXXXX)
