@@ -11,5 +11,5 @@
     // Theme
     // CSS file defining the corresponding
     // .cm-s-[name] styles is loaded
-    "theme": "default"
+    "theme": "jupyter"
 }
