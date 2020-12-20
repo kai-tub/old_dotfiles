@@ -40,26 +40,26 @@
         stdout: true
         stderr: true
         description: "Appending to shellfile"
-    # -
-    #     command: bash ~/bin/download_pdfcpu.sh
-    #     stdin: true
-    #     stderr: true
-    #     description: "Installing pdfcpu"
-    # -
-    #     command: bash ~/bin/miniconda_installer.sh
-    #     stdin: true
-    #     stderr: true
-    #     description: "Installing miniconda if not present"
-    # -
-    #     command: bash ~/bin/download_powerline-go.sh
-    #     stdin: true
-    #     stderr: true
-    #     description: "Installing powerline-go"
-    # -
-    #     command: bash ~/bin/install_cascadia_fonts.sh
-    #     stdin: true
-    #     stderr: true
-    #     description: "Installing cascadia fonts"
+    -
+        command: bash ~/bin/download_pdfcpu.sh
+        stdin: true
+        stderr: true
+        description: "Installing pdfcpu"
+    -
+        command: bash ~/bin/miniconda_installer.sh
+        stdin: true
+        stderr: true
+        description: "Installing miniconda if not present"
+    -
+        command: bash ~/bin/download_powerline-go.sh
+        stdin: true
+        stderr: true
+        description: "Installing powerline-go"
+    -
+        command: bash ~/bin/install_cascadia_fonts.sh
+        stdin: true
+        stderr: true
+        description: "Installing cascadia fonts"
     - 
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         stdout: true
