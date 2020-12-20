@@ -6,20 +6,25 @@
         relink: true
 
 - link:
+    ~/.my_bashrc:
+        path: my_bashrc
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
         path: ssh/config
+    ~/.config/fish/my_config.fish:
+        path: fish/my_config.fish
     ~/.config/fish/functions/: 
         glob: true
         path: fish/functions/*
+    ~/.config/fish/completions/: 
+        glob: true
+        path: fish/completions/*
     ~/bin:
         glob: true
         path: bin/*
     ~/.conda_envs:
         glob: true
         path: conda_envs/*
-    ~/.my_bashrc:
-        path: my_bashrc
     ~/.jupyter/lab/user-settings:
         glob: true
         path: jupyter_lab_user_settings/
@@ -35,26 +40,26 @@
         stdout: true
         stderr: true
         description: "Appending to shellfile"
-    -
-        command: bash ~/bin/download_pdfcpu.sh
-        stdin: true
-        stderr: true
-        description: "Installing pdfcpu"
-    -
-        command: bash ~/bin/miniconda_installer.sh
-        stdin: true
-        stderr: true
-        description: "Installing miniconda if not present"
-    -
-        command: bash ~/bin/download_powerline-go.sh
-        stdin: true
-        stderr: true
-        description: "Installing powerline-go"
-    -
-        command: bash ~/bin/install_cascadia_fonts.sh
-        stdin: true
-        stderr: true
-        description: "Installing cascadia fonts"
+    # -
+    #     command: bash ~/bin/download_pdfcpu.sh
+    #     stdin: true
+    #     stderr: true
+    #     description: "Installing pdfcpu"
+    # -
+    #     command: bash ~/bin/miniconda_installer.sh
+    #     stdin: true
+    #     stderr: true
+    #     description: "Installing miniconda if not present"
+    # -
+    #     command: bash ~/bin/download_powerline-go.sh
+    #     stdin: true
+    #     stderr: true
+    #     description: "Installing powerline-go"
+    # -
+    #     command: bash ~/bin/install_cascadia_fonts.sh
+    #     stdin: true
+    #     stderr: true
+    #     description: "Installing cascadia fonts"
     - 
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         stdout: true
