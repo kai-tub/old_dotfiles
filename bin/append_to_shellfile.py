@@ -14,7 +14,6 @@ def _wrap_payload(payload: str) -> str:
     return f"{PAYLOAD_START}\n{payload}\n{PAYLOAD_END}\n"
 
 
-#TODO: Fix identations
 def _get_bash_payload() -> str:
     payload = """
     if [ -f ~/.my_bashrc ]; then
