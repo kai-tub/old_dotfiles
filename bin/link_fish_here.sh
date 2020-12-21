@@ -9,3 +9,9 @@ if ! command -v fish &> /dev/null; then
 else
     echo "fish already in PATH! Nothing will be changed."
 fi
+
+if ! command -v fish_ident &> /dev/null; then
+    find "$HOME/miniconda" -type d \( -name pkgs \) -prune -false -o -name "fish_indent" -type f  -exec ln -s {} . \; -quit
+else
+    echo "fish_ident already in PATH! Nothing will be changed."
+fi

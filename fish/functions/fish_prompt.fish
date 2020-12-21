@@ -10,5 +10,5 @@ function fish_prompt
         -hostname-only-if-ssh \
         -cwd-mode "fancy" \
         -mode "patched"
-        # modules right needs to be configured via fish
+    # modules right needs to be configured via fish
 end
