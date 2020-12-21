@@ -6,3 +6,6 @@
 	path = update-golang
 	url = https://github.com/udhos/update-golang.git
 	ignore = dirty
+[submodule "fzf"]
+	path = fzf
+	url = https://github.com/junegunn/fzf.git
