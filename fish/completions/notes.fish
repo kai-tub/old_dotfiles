@@ -22,9 +22,9 @@ complete -c notes -n '__fish_seen_subcommand_from new' -l no-inline-input -d "Do
 complete -c notes -n '__fish_seen_subcommand_from ls list' -l no-inline-input -d "Does not request inline input even if no editor is set"
 complete -c notes -n '__fish_seen_subcommand_from ls list' -s f -l full -d "Show full information of note instead of path"
 complete -c notes -n '__fish_seen_subcommand_from ls list' -l category -d "Filter category name by regular expression"
-complete -c notes -n '__fish_seen_subcommand_from ls list; and [ \'--category\' = (string split " " (commandline))[-2] ]' -xa (notes categories)
+# complete -c notes -n '__fish_seen_subcommand_from ls list; and [ \'--category\' = (string split " " (commandline))[-2] ]' -xa (notes categories)
 complete -c notes -n '__fish_seen_subcommand_from ls list' -l tag -d "Filter tag name by regular expression"
-complete -c notes -n '__fish_seen_subcommand_from ls list; and [ \'--tag\' = (string split " " (commandline))[-2] ]' -xa (notes tags)
+# complete -c notes -n '__fish_seen_subcommand_from ls list; and [ \'--tag\' = (string split " " (commandline))[-2] ]' -xa (notes tags)
 complete -c notes -n '__fish_seen_subcommand_from ls list' -s r -l relative -d 'Show relative paths from $NOTES_CLI_HOME directory'
 complete -c notes -n '__fish_seen_subcommand_from ls list' -s o -l oneline -d "Show oneline information of note instead of path"
 complete -c notes -n '__fish_seen_subcommand_from ls list' -l sort -d "Sort results by 'modified', 'created', 'filename' or 'category'. 'created' is default"
@@ -49,4 +49,3 @@ complete -c notes -n '__fish_seen_subcommand_from help' -xa 'tags' -d "List all 
 complete -c notes -n '__fish_seen_subcommand_from help' -xa 'save' -d "Save notes using Git. It adds all notes and creates a commit to Git repository at home directory"
 complete -c notes -n '__fish_seen_subcommand_from help' -xa 'config' -d "Output config values to stdout. By default output all values with KEY=VALUE style"
 complete -c notes -n '__fish_seen_subcommand_from help' -xa 'selfupdate' -d "Update myself to the latest version. It downloads the latest version executable and replaces current executable with it"
-
