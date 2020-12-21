@@ -4,9 +4,12 @@ This is my collection of dotfiles and scripts.
 To run scripts located in `bin` the following
 packages have to be installed:
 - `git`
-- `fzf`
 - `bash`
 - `curl`
+
+FUTURE:
+Add `bat` to future python download binary script.
+Add `fd` to future python download binary script.
 
 ## Base Install
 1. `./install`
