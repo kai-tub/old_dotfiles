@@ -33,3 +33,17 @@ if [ "$TERM" != "linux" ] && command -v powerline-go &> /dev/null; then
 fi
 
 set -o vi
+
+if command -v code &> /dev/null; then
+    EDITOR=$(which code)
+elif command -v vim &> /dev/null; then
+    EDITOR=$(which vim)
+elif command -v vi &> /dev/null; then
+    EDITOR=$(which vi)
+elif command -v nano &> /dev/null; then
+    EDITOR=$(which nano)
+else
+    EDITOR=
+fi
+
+export EDITOR

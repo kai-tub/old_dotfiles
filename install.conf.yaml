@@ -13,12 +13,15 @@
         path: ssh/config
     ~/.config/fish/my_config.fish:
         path: fish/my_config.fish
-    ~/.config/fish/functions/: 
+    ~/.config/fish/functions/:
         glob: true
         path: fish/functions/*
-    ~/.config/fish/completions/: 
+    ~/.config/fish/completions/:
         glob: true
         path: fish/completions/*
+    ~/.config/fish/conf.d/:
+        glob: true
+        path: fish/conf.d/*
     ~/bin:
         glob: true
         path: bin/*
@@ -35,7 +38,7 @@
     - >
         git clean -f -x - d
         update-golang
-    - 
+    -
         command: python ~/bin/append_to_shellfile.py
         stdout: true
         stderr: true
@@ -60,7 +63,7 @@
         stdin: true
         stderr: true
         description: "Installing cascadia fonts"
-    - 
+    -
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         stdout: true
         quiet: true
