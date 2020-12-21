@@ -1,5 +1,3 @@
-# complete -c reproduce.py -n '__fish_using_command build-cleaned-dataset; and __is_prev_global; and __option_entered_check --dataset-path' -l dataset-path
-
 set country_codes "ABW	Aruba
 AFG	Afghanistan
 AGO	Angola
