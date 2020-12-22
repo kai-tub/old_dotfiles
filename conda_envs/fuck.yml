@@ -1,0 +1,6 @@
+name: fuck
+dependencies:
+  - pip
+  - pip:
+    # Will never be in conda-forge, as it violates conda guidelines.
+    - thefuck

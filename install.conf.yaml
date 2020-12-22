@@ -24,7 +24,7 @@
         path: fish/conf.d/*
     ~/bin:
         glob: true
-        path: bin/*
+        path: scripts/*
     ~/.conda_envs:
         glob: true
         path: conda_envs/*
