@@ -55,3 +55,10 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 - `f` runs `thef***` command.
 - `gs` runs the interactive `git status` with file preview.
 - `sv` searches fish variables
+
+## Windows
+If the time comes when I need to set up a Windows machine again, here are a couple of
+interesting links:
+- Windows Package Manager: [Chocolatey](https://chocolatey.org/)
+- Windows 10 [Debloater script](https://github.com/Sycnex/Windows10Debloater)
+- [Windows Dev Box setup](https://github.com/Microsoft/windows-dev-box-setup-scripts) (requires admin rights)
