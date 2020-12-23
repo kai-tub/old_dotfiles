@@ -8,3 +8,5 @@ if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null
 else
     fisher install franciscolourenco/done
 end
+
+fisher install PatrickF1/fzf.fish
