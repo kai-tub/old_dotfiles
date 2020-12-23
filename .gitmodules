@@ -10,6 +10,3 @@
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
 	ignore = dirty
-[submodule "youtube-dl"]
-	path = youtube-dl
-	url = https://github.com/ytdl-org/youtube-dl

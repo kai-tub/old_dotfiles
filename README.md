@@ -1,7 +1,7 @@
 # Dotfiles
 
 This is my collection of dotfiles and scripts.
-To run scripts located in `bin` the following
+To run scripts located in `scripts` the following
 packages have to be installed:
 - `git`
 - `bash`
@@ -10,7 +10,6 @@ packages have to be installed:
 FUTURE:
 Add `bat` to future python download binary script.
 Add `fd` to future python download binary script.
-Add presenter-software as a dependency
 
 ## Base Install
 1. `./install`
@@ -18,9 +17,9 @@ Add presenter-software as a dependency
 1. `bash scripts/create_conda_envs.sh`
 1. `bash scripts/link_fish_here.sh`
     - This is the best option for now, the next release may include an `AppImage`
-1. `bash scripts/link_f_here.sh`
-    - This will always be the best option
-2. `install_lab_extensions.sh` to desired environments
+1. `bash scripts/install_pipx_tools.sh`
+    - Requires conda to be installed first!
+1. `install_lab_extensions.sh` to desired environments
 
 ## Admin Install
 If root privileges are available, first install `flatpak`:
@@ -42,9 +41,9 @@ sudo apt-get install chrome # if available, otherwise follow instruction to inst
 sudo update-alternatives --config x-terminal-emulator # Set default terminal to terminator; Doesn't affect nautilus settings
 ```
 
-TODO #1: Add `megasync` on startup
-TODO #2: Change download scripts to single python script
-TODO #3: Create and change terminator shortcuts
+- TODO #1: Add `megasync` on startup
+- TODO #2: Change download scripts to single python script
+- TODO #3: Create and change terminator shortcuts
 
 ## Fish command abbreviations
 - `Ctrl+F` or `s` (search) to search recursively through the current directory with file preview.
