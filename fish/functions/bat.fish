@@ -3,7 +3,7 @@
 
 # Helper function:
 function __bat_autocomplete_languages --description "A helper function used by "(status filename)
-	bat --list-languages | awk -F':' '
+    bat --list-languages | awk -F':' '
 		{
 			lang=$1
 			split($2, exts, ",")
@@ -34,7 +34,7 @@ complete -c bat -s H -l highlight-line -x -d "<N> Highlight the N-th line with a
 
 complete -c bat -l italic-text -xka "always never" -d "Specify when to use ANSI sequences for italic text (default: never)" -n "not __fish_seen_subcommand_from cache"
 
-complete -c bat -s l -l language -d "Set the language for syntax highlighting" -n "not __fish_seen_subcommand_from cache" -xa "(__bat_autocomplete_languages)" 
+complete -c bat -s l -l language -d "Set the language for syntax highlighting" -n "not __fish_seen_subcommand_from cache" -xa "(__bat_autocomplete_languages)"
 
 complete -c bat -s r -l line-range -x -d "<N:M> Only print the specified range of lines for each file" -n "not __fish_seen_subcommand_from cache"
 
