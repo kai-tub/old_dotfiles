@@ -10,6 +10,7 @@ packages have to be installed:
 FUTURE:
 Add `bat` to future python download binary script.
 Add `fd` to future python download binary script.
+Add presenter-software as a dependency
 
 ## Base Install
 1. `./install`
@@ -32,7 +33,7 @@ Other applications that require root rights, are:
 ```bash
 sudo apt-get install terminator
 sudo apt-get install git # if necessary
-sudo apt-get install curl fzf # if necessary
+sudo apt-get install curl # if necessary
 sudo apt-get install chrome # if available, otherwise follow instruction to install package
 ```
 
@@ -44,3 +45,9 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 TODO #1: Add `megasync` on startup
 TODO #2: Change download scripts to single python script
 TODO #3: Create and change terminator shortcuts
+
+## Fish command abbreviations
+- `Ctrl+F` or `s` (search) to search recursively through the current directory with file preview.
+- `f` runs `thef***` command.
+- `gs` runs the interactive `git status` with file preview.
+- `sv` searches fish variables
