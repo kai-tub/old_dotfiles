@@ -38,7 +38,7 @@
     ~/scripts:
         glob: true
         path: scripts/*
-    ~/scripts:
+    ~/flatpak:
         glob: true
         path: flatpak/*
     ~/.conda_envs:
