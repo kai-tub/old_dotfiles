@@ -34,6 +34,7 @@ sudo apt-get install terminator
 sudo apt-get install git # if necessary
 sudo apt-get install curl # if necessary
 sudo apt-get install chrome # if available, otherwise follow instruction to install package
+sudo apt-get install ffmpeg # ffmpeg could help for other applications
 ```
 
 ## Root-configurations
