@@ -33,6 +33,8 @@
         path: fish/conf.d/*
     ~/.config/youtube-dl/config:
         path: youtube-dl/config
+    ~/.config/terminator/config:
+        path: terminator/config
     ~/scripts:
         glob: true
         path: scripts/*

@@ -1,0 +1,32 @@
+[global_config]
+  inactive_color_offset = 0.5067764913818489
+  title_use_system_font = False
+  title_font = Cascadia Mono PL Semi-Bold 12
+[keybindings]
+  zoom_in = <Primary>equal
+  zoom_out = <Primary>minus
+  go_up = <Primary>k
+  go_down = <Primary>j
+  go_left = <Primary>h
+  go_right = <Primary>l
+  split_horiz = <Primary><Alt>minus
+  split_vert = <Primary><Alt>equal
+  resize_up = <Primary><Alt>k
+  resize_down = <Primary><Alt>j
+  resize_left = <Primary><Alt>h
+  resize_right = <Primary><Alt>l
+[profiles]
+  [[default]]
+    audible_bell = True
+    visible_bell = True
+    cursor_color = "#aaaaaa"
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+[plugins]
