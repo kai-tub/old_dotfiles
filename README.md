@@ -48,9 +48,6 @@ sudo apt-get install pympress # FUTURE: Add pympress to flatpak
 sudo update-alternatives --config x-terminal-emulator # Set default terminal to terminator; Doesn't affect nautilus settings
 ```
 
-- TODO #1: Add `megasync` on startup
-- TODO #3: Create and change terminator shortcuts
-
 ## Fish command abbreviations
 - `Ctrl+F` or `s` (search) to search recursively through the current directory with file preview.
 - `f` runs `thef***` command.
