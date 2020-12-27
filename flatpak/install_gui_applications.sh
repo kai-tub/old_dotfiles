@@ -14,7 +14,6 @@ flatpak install flathub com.spotify.Client -y --noninteractive
 flatpak install flathub org.signal.Signal -y --noninteractive
 flatpak install flathub org.gimp.GIMP -y --noninteractive
 flatpak install flathub org.telegram.desktop -y --noninteractive
-flatpak install flathub com.visualstudio.code -y --noninteractive
 flatpak install flathub org.videolan.VLC -y --noninteractive
 flatpak install flathub com.discordapp.Discord -y --noninteractive
 flatpak install flathub org.audacityteam.Audacity -y --noninteractive
