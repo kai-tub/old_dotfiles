@@ -1,4 +1,10 @@
-- clean: ['~']
+- clean:
+    ~/.config:
+        recursive: true
+    ~/conda_envs:
+        force: true
+    ~/scripts:
+        force: true
 
 - defaults:
     link:
@@ -22,7 +28,7 @@
     ~/.config/fish/conf.d/:
         glob: true
         path: fish/conf.d/*
-    ~/bin:
+    ~/scripts:
         glob: true
         path: scripts/*
     ~/.conda_envs:
@@ -39,30 +45,19 @@
         git clean -f -x - d
         update-golang
     -
-        command: python ~/bin/append_to_shellfile.py
+        command: python ~/scripts/append_to_shellfile.py
         stdout: true
         stderr: true
         description: "Appending to shellfile"
     -
-        command: bash ~/bin/download_pdfcpu.sh
-        stdin: true
+        command: fish ~/scripts/install_cli_tools.fish # use -u to update
+        stdout: true
         stderr: true
-        description: "Installing pdfcpu"
     -
-        command: bash ~/bin/miniconda_installer.sh
+        command: bash ~/scripts/miniconda_installer.sh
         stdin: true
         stderr: true
         description: "Installing miniconda if not present"
-    -
-        command: bash ~/bin/download_powerline-go.sh
-        stdin: true
-        stderr: true
-        description: "Installing powerline-go"
-    -
-        command: bash ~/bin/install_cascadia_fonts.sh
-        stdin: true
-        stderr: true
-        description: "Installing cascadia fonts"
     -
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         stdout: true
