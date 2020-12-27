@@ -10,6 +10,9 @@
     link:
         create: true
         relink: true
+    shell:
+        stdout: true
+        stderr: true
 
 - link:
     ~/.my_bashrc:
@@ -46,20 +49,20 @@
         update-golang
     -
         command: python ~/scripts/append_to_shellfile.py
-        stdout: true
-        stderr: true
         description: "Appending to shellfile"
     -
-        command: fish ~/scripts/install_cli_tools.fish # use -u to update
-        stdout: true
-        stderr: true
+        command: command -v fish &> /dev/null && fish ~/scripts/install_fish_plugins.fish # is idempotent
+        description: "Install/Update fish plugins"
+        stdout: false
+        stderr: false
+    -
+        command: command -v fish &> /dev/null && fish ~/scripts/install_cli_tools.fish # use -u to update
+        description: "Install cli tools. Set --force to update binaries."
     -
         command: bash ~/scripts/miniconda_installer.sh
-        stdin: true
-        stderr: true
         description: "Installing miniconda if not present"
+        stdout: false
+        stderr: false
     -
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
-        stdout: true
-        quiet: true
         description: ""

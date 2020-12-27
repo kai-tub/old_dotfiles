@@ -1,6 +1,8 @@
 #!/usr/bin/env fish
 
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+if ! command -q fisher
+    curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+end
 
 if grep -qEi "(Microsoft|WSL)" /proc/version &>/dev/null
     echo "Not installing _done_ as it currently has issues with WSL!"
