@@ -27,6 +27,12 @@ sudo apt-get install flatpak
 ```
 Then run `bash flatpak/install_gui_applications` to install all GUI applications. (Doesn't require root)
 
+Do not forget to add `megasync` to the autostart configuration, if desired:
+```bash
+mkdir -p ~/config/autostart/
+ln -s /var/lib/flatpak/exports/share/applications/nz.mega.MEGAsync.desktop ~/.config/autostart/
+```
+
 Other applications that require root rights, are:
 ```bash
 sudo apt-get install terminator
