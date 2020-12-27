@@ -7,10 +7,6 @@ packages have to be installed:
 - `bash`
 - `curl`
 
-FUTURE:
-Add `bat` to future python download binary script.
-Add `fd` to future python download binary script.
-
 ## Base Install
 1. `./install`
 1. `cd ~`
@@ -20,6 +16,8 @@ Add `fd` to future python download binary script.
 1. `bash scripts/install_pipx_tools.sh`
     - Requires conda to be installed first!
 1. `install_lab_extensions.sh` to desired environments
+1. `fish scripts/install_fish_plugins.fish`
+1. `fish scripts/install_cli_tools.fish`
 
 ## Admin Install
 If root privileges are available, first install `flatpak`:
@@ -43,7 +41,6 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 ```
 
 - TODO #1: Add `megasync` on startup
-- TODO #2: Change download scripts to single python script
 - TODO #3: Create and change terminator shortcuts
 
 ## Fish command abbreviations
