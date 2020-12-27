@@ -47,3 +47,4 @@ else
 fi
 
 export EDITOR
+export PIPX_BIN_DIR="~/bin"

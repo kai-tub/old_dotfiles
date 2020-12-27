@@ -1,7 +1,7 @@
 - clean:
     ~/.config:
         recursive: true
-    ~/conda_envs:
+    ~/.conda_envs:
         force: true
     ~/scripts:
         force: true
