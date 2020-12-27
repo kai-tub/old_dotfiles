@@ -1,0 +1,8 @@
+# Save all videos under Videos directory
+-o ~/Videos/%(title)s.%(ext)s
+
+# If merge is necessary target `mkv` format
+--merge-output-format mkv
+
+# Recode all video files to `mkv` to keep the results consistent
+--recode-video mkv
