@@ -84,7 +84,7 @@ function install_cascadia --description "Install cascadia" -a "target_dir" "forc
     set -l fname (download_repo "microsoft/cascadia-code")
     mv $fname cascadia-code.zip
     mkdir cascadia-code
-    unzip $fname -d cascadia-code
+    unzip cascadia-code.zip -d cascadia-code
     set font_folder "$HOME/.local/share/fonts/opentype"
     mkdir -p "$font_folder"
     cp -r cascadia-code/otf/* "$font_folder"

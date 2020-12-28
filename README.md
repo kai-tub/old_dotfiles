@@ -11,9 +11,11 @@ packages have to be installed:
 1. `./install`
 1. `cd ~`
 1. `bash scripts/create_conda_envs.sh`
-1. `bash scripts/link_fish_here.sh`
+1. `mkdir -p ~/bin`
+1. `cp ~/scripts/link_fish_here.sh ~/bin/link_fish_here.sh`
+1. `cd ~/bin && bash link_fish_here.sh`
     - This is the best option for now, the next release may include an `AppImage`
-1. `bash scripts/install_pipx_tools.sh`
+1. `bash ~/scripts/install_pipx_tools.sh`
     - Requires conda to be installed first!
 1. `install_lab_extensions.sh` to desired environments
 1. Re-run `./install` to run following commands:
