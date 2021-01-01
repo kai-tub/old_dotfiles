@@ -11,3 +11,6 @@ export PIPX_BIN_DIR="$HOME/bin/"
 pipx ensurepath --force
 pipx install thefuck
 pipx install youtube-dl
+pipx install black
+pipx install flake8
+

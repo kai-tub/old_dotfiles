@@ -41,4 +41,12 @@ jlpm install
 jlpm run build
 jupyter labextension link .
 
+# Visual debugger; Required for lab < 3.0.0
+jupyter labextension install @jupyterlab/debugger
+
+# Shortcut T to toggle collapsible heading
+jupyter labextension install @aquirdturtle/collapsible_headings
+
+jupyter labextension install @ijmbarr/jupyterlab_spellchecker
+
 jupyter lab build
