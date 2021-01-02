@@ -43,6 +43,10 @@ function download_repo --description "Downlaod repo. Returns the name." -a "repo
     echo "$fname"
 end
 
+function simplify_name --description "Recurse into directory and rename input" -a inp simple_name
+    find . -name "*$inp*" -type f -exec mv {} "$simple_name" \;
+end
+
 function install_notes_cli --description "Install notes_cli" -a "target_dir" "force"
     if command -q notes; and test -z "$force"
         echo "Skipping `notes` installation, as it is already installed."
@@ -85,6 +89,18 @@ function install_pdfcpu --description "Install pdfcpu" -a "target_dir" "force"
     mv $fname pdfcpu.tar.xz
     tar -xf pdfcpu.tar.xz
     find_and_move_binary "pdfcpu" "$target_dir"
+end
+
+function install_exa --description "Install exa" -a "target_dir" "force"
+    if command -q exa; and test -z "$force"
+        echo "Skipping `exa` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "ogham/exa")
+    mv $fname exa.zip
+    unzip exa.zip
+    simplify_name "exa" "./exa"
+    find_and_move_binary "exa" "$target_dir"
 end
 
 function install_cascadia --description "Install cascadia" -a "target_dir" "force"
@@ -183,6 +199,7 @@ install_pdfcpu "$_flag_target_dir" "$force"
 install_cascadia "$_flag_target_dir" "$force"
 install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
+install_exa "$_flag_target_dir" "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
