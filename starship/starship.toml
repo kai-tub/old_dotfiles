@@ -1,0 +1,31 @@
+# format = """
+# [┌───────────────────>](bold green)
+# [│](bold green)$directory$rust$package
+# [└─>](bold green) """
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[✗](bold red)"
+vicmd_symbol = "[V](bold green)"
+
+[cmd_duration]
+show_notifications = true
+
+[conda]
+disabled = true
+
+[python]
+disabled = true
+
+[directory]
+truncation_length = 4
+
+[git_status]
+stashed = "📦"
+untracked = " ${count}?"
+modified = " ${count}M"
+staged = " ${count}✔"
+ahead = " ⇡${count}"
+diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
+behind = " ⇣${count}"
+format = '([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style) )'

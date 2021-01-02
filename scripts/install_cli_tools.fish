@@ -64,6 +64,18 @@ function install_powerline_go --description "Install powerline-go" -a "target_di
     find_and_move_binary "powerline-go" "$target_dir"
 end
 
+function install_starship --description "Install starship" -a "target_dir" "force"
+    if command -q starship; and test -z "$force"
+        echo "Skipping `starship` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "starship/starship")
+    mv $fname starship.tar.xz
+    tar -xf starship.tar.xz
+    find_and_move_binary "starship" "$target_dir"
+end
+
+
 function install_pdfcpu --description "Install pdfcpu" -a "target_dir" "force"
     if command -q pdfcpu; and test -z "$force"
         echo "Skipping `pdfcpu` installation, as it is already installed."
@@ -166,6 +178,7 @@ end
 
 install_notes_cli "$_flag_target_dir" "$force"
 install_powerline_go "$_flag_target_dir" "$force"
+install_starship "$_flag_target_dir" "$force"
 install_pdfcpu "$_flag_target_dir" "$force"
 install_cascadia "$_flag_target_dir" "$force"
 install_bat "$_flag_target_dir" "$force"

@@ -47,6 +47,8 @@
     ~/.jupyter/lab/user-settings:
         glob: true
         path: jupyter_lab_user_settings/
+    ~/.config/starship.toml:
+        path: starship/starship.toml
 
 - shell:
     - git submodule sync --recursive

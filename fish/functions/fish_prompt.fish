@@ -1,6 +1,8 @@
 function fish_prompt
     # If command not found continue normally
-    if command -q powerline-go
+    if command -q starship
+        starship init fish | source
+    else if command -q powerline-go
         eval powerline-go \
             -error $status \
             -newline \
