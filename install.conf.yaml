@@ -49,6 +49,8 @@
         path: jupyter_lab_user_settings/
     ~/.config/starship.toml:
         path: starship/starship.toml
+    ~/.condarc:
+        path: condarc/condarc
 
 - shell:
     - git submodule sync --recursive

@@ -7,7 +7,7 @@ function fish_prompt
             -error $status \
             -newline \
             -shell bare \
-            -modules "user,host,ssh,cwd,perms,git,hg,jobs,exit,root" \
+            -modules "user,host,ssh,conda,cwd,perms,git,hg,jobs,exit,root" \
             -cwd-max-depth 4 \
             -hostname-only-if-ssh \
             -cwd-mode "fancy" \
