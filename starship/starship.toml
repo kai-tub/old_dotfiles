@@ -58,7 +58,7 @@ add_newline = false
 # Nice prompt characters: ❯
 success_symbol = "[└── ❯](bold green)"
 error_symbol = "[└──](bold green)[ ❯](bold red)"
-vicmd_symbol = "[└─V─ ❯](bold green)"
+vicmd_symbol = "[└── V](bold green)"
 
 [cmd_duration]
 show_notifications = true
