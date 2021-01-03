@@ -59,8 +59,11 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 ## Some interesting tools
 Here is a list of some interesting tools, that require some more steps to set up properly, but
 that are either quite helpful, or were eye-opening:
-- [Sherlock](https://github.com/sherlock-project/sherlock)
 - [GHunt](https://github.com/mxrch/GHunt)
+
+## Tools that require docker
+All of these tools have fish aliases
+- [Sherlock](https://github.com/sherlock-project/sherlock)
 
 ## Windows
 If the time comes when I need to set up a Windows machine again, here are a couple of
