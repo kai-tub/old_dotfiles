@@ -1,11 +1,10 @@
 {
     "codeCellConfig": {
-        "fontFamily": "Cascadia Code PL",
+        "fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code PL'",
         "fontSize": 14,
     },
-        
     "markdownCellConfig": {
-        "fontFamily": "Cascadia Code PL",
+        "fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code PL'",
         "fontSize": 14
     }
 }

@@ -1,7 +1,7 @@
 [global_config]
   inactive_color_offset = 0.5067764913818489
   title_use_system_font = False
-  title_font = Cascadia Mono PL Semi-Bold 12
+  title_font = CaskaydiaCove Nerd Font 12
 [keybindings]
   zoom_in = <Primary>equal
   zoom_out = <Primary>minus
