@@ -9,8 +9,10 @@ if ! command -v flatpak &> /dev/null; then
     exit 0
 fi
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
 
-flatpak install flathub org.mozilla.firefox -y --noninteractive --user
+# flatpak install flathub org.mozilla.firefox -y --noninteractive --user
+flatpak install flathub-beta org.mozilla.firefox -y --noninteractive --user
 flatpak install flathub org.chromium.Chromium -y --noninteractive --user
 flatpak install flathub org.libretro.RetroArch -y --noninteractive --user
 flatpak install flathub com.spotify.Client -y --noninteractive --user
