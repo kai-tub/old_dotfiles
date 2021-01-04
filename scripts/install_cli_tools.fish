@@ -103,7 +103,7 @@ function install_exa --description "Install exa" -a "target_dir" "force"
     find_and_move_binary "exa" "$target_dir"
 end
 
-function install_cascadia --description "Install cascadia" -a "target_dir" "force"
+function install_cascadia --description "Install cascadia" -a "force"
     set -l font (fc-list | grep -i "Cascadia")
     if test -n "$font"; and test -z "$force"
         echo "Skipping `cascadia` installation, as the font is already installed."
@@ -196,7 +196,7 @@ install_notes_cli "$_flag_target_dir" "$force"
 install_powerline_go "$_flag_target_dir" "$force"
 install_starship "$_flag_target_dir" "$force"
 install_pdfcpu "$_flag_target_dir" "$force"
-install_cascadia "$_flag_target_dir" "$force"
+install_cascadia "$force"
 install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
 install_exa "$_flag_target_dir" "$force"

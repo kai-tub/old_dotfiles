@@ -77,3 +77,6 @@
     -
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         description: ""
+    -
+        command: bash nerd-fonts/install.sh CascadiaCode
+        description: "Installing Nerd Fonts"

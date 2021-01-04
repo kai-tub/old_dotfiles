@@ -10,3 +10,6 @@
 	path = fzf
 	url = https://github.com/junegunn/fzf.git
 	ignore = dirty
+[submodule "nerd-fonts"]
+	path = nerd-fonts
+	url = https://github.com/ryanoasis/nerd-fonts.git
