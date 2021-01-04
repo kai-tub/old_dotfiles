@@ -10,7 +10,8 @@ if ! command -v flatpak &> /dev/null; then
 fi
 flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub org.mozilla.firefox
+flatpak install flathub org.mozilla.firefox -y --noninteractive --user
+flatpak install flathub org.chromium.Chromium -y --noninteractive --user
 flatpak install flathub org.libretro.RetroArch -y --noninteractive --user
 flatpak install flathub com.spotify.Client -y --noninteractive --user
 flatpak install flathub org.signal.Signal -y --noninteractive --user
@@ -36,4 +37,3 @@ flatpak install flathub com.github.phase1geo.minder -y --noninteractive --user
 flatpak install flathub com.github.johnfactotum.Foliate -y --noninteractive --user
 flatpak install flathub org.keepassxc.KeePassXC -y --noninteractive --user
 flatpak install flathub com.jgraph.drawio.desktop -y --noninteractive --user
-

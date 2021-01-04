@@ -25,6 +25,9 @@ packages have to be installed:
 ## Admin Install
 If root privileges are available, first install `flatpak`:
 ```bash
+# Distro based-packages are out-of-date!
+sudo add-apt-repository ppa:alexlarsson/flatpak
+sudo apt-get update
 sudo apt-get install flatpak
 ```
 Then run `bash flatpak/install_gui_applications` to install all GUI applications. (Doesn't require root)
