@@ -1,6 +1,7 @@
 format = """
-[┌────────────────────](bold green)
-[│](bold green)$username\
+[┌────────────────────────](bold green)
+[│](bold green) $username\
+$username\
 $hostname\
 $shlvl\
 $kubernetes\
@@ -46,19 +47,18 @@ $cmd_duration\
 $custom\
 $line_break\
 $lua\
-$jobs\
 $battery\
 $time\
-$status\
+[└──](bold green) $status$jobs\
 $character"""
 
 add_newline = false
 
 [character]
 # Nice prompt characters: ❯
-success_symbol = "[└── ❯](bold green)"
-error_symbol = "[└──](bold green)[ ❯](bold red)"
-vicmd_symbol = "[└── V](bold green)"
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold green)"
 
 [cmd_duration]
 show_notifications = true
@@ -78,7 +78,7 @@ stashed = "📦"
 untracked = " ${count}?"
 modified = " ${count}M"
 staged = " ${count}✔"
-ahead = " ⇡${count}"
-diverged = " ⇕⇡${ahead_count}⇣${behind_count}"
-behind = " ⇣${count}"
+ahead = " ${count}⇡"
+diverged = " ⇕${ahead_count}⇡${behind_count}⇣"
+behind = " ${count}⇣"
 format = '([$conflicted$stashed$deleted$renamed$modified$staged$untracked$ahead_behind]($style) )'

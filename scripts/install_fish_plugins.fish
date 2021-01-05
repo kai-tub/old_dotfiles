@@ -12,3 +12,4 @@ else
 end
 
 fisher install PatrickF1/fzf.fish
+fisher install laughedelic/fish_logo
