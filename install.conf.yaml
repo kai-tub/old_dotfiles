@@ -78,5 +78,5 @@
         command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         description: ""
     -
-        command: bash nerd-fonts/install.sh CascadiaCode
+        command: (false && git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git && bash nerd-fonts/install.sh CascadiaCode) || true
         description: "Installing Nerd Fonts"

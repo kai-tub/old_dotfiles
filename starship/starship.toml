@@ -1,5 +1,5 @@
 format = """
-[┌────────────────────────](bold green)
+[┌────────────────────────────────](bold green)
 [│](bold green) $username\
 $username\
 $hostname\
