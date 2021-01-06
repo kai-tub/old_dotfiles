@@ -47,4 +47,6 @@ else
 fi
 
 export EDITOR
-export PIPX_BIN_DIR="~/bin"
+export PIPX_BIN_DIR="$HOME/bin"
+
+[[ ":$PATH:" != *":$HOME/bin/:"* ]] && PATH="$HOME/bin/:${PATH}"
