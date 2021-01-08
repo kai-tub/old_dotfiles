@@ -7,7 +7,7 @@ case $- in
       *) return;;
 esac
 
-if [[ $(ps --no-header --pid=$PPID --format=cmd) != "fish" ]]
+if [[ $(ps --no-header --pid=$PPID --format=cmd) != *"fish" ]]
 then
     if command -v fish &> /dev/null; then
         exec fish
@@ -15,21 +15,17 @@ then
 fi
 
 function _update_ps1() {
-    PS1="$(powerline-go \
-        -newline \
-        -error $? \
-        -shell bash \
-        -modules 'venv,user,host,ssh,cwd,perms,git,hg,jobs,exit,root' \
-        -cwd-max-depth 4 \
-        -hostname-only-if-ssh \
-        -cwd-mode 'fancy' \
-        -mode patched \
-        )"
+    PS1="$(powerline-go -error $? -jobs $(jobs -p | wc -l))"
 }
 
 # TERM = "linux" should show minimalistic output
-if [ "$TERM" != "linux" ] && command -v powerline-go &> /dev/null; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if [ "$TERM" != "linux" ]; then
+    if command -v powerline-go &> /dev/null; then
+        PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+    # starship has some issues on bash; and doesn't work on WSL. Rather use `powerline-go`
+    elif command -v starship &> /dev/null && [[ "$(< /proc/version)" == *@(Microsoft|WSL)* ]]; then
+        eval "$starship init bash"
+    fi
 fi
 
 set -o vi

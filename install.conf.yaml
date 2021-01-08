@@ -49,6 +49,9 @@
         path: jupyter_lab_user_settings/
     ~/.config/starship.toml:
         path: starship/starship.toml
+    ~/.config/powerline-go:
+        glob: true
+        path: powerline-go/*
     ~/.condarc:
         path: condarc/condarc
 

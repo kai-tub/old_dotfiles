@@ -1,0 +1,20 @@
+{
+    "modules": [
+        "venv",
+        "user",
+        "host",
+        "ssh",
+        "cwd",
+        "perms",
+        "git",
+        "hg",
+        "jobs",
+        "exit",
+        "root"
+    ],
+    "hostname-only-if-ssh": true,
+    "cwd-mode": "fancy",
+    "duration-min": "5000",
+    "newline": true,
+    "cwd-max-depth": 4
+}

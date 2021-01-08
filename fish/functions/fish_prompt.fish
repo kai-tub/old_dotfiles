@@ -24,16 +24,8 @@ function fish_prompt
         export STARSHIP_SESSION_KEY=("$_cmd" session)
 
     else if command -q powerline-go
-        # if command -q powerline-go
         eval powerline-go \
-            -error $status \
-            -newline \
-            -shell bare \
-            -modules "venv,user,host,ssh,perms,git,hg,jobs,exit,root" \
-            -cwd-max-depth 4 \
-            -hostname-only-if-ssh \
-            -cwd-mode "fancy" \
-            -mode "patched"
+            -error $status -jobs (jobs -p | wc -l)
     else
         set_color $fish_color_cwd
         echo -n (prompt_pwd)
