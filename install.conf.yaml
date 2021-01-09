@@ -20,8 +20,10 @@
     ~/.gitconfig: gitconfig
     ~/.ssh/config:
         path: ssh/config
-    ~/.config/fish/my_config.fish:
+    ~/.config/fish/my_config:
         path: fish/my_config.fish
+    ~/.config/fish/fish_plugins:
+        path: fish/fish_plugins
     ~/.config/fish/functions/:
         glob: true
         path: fish/functions/*

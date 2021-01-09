@@ -58,6 +58,17 @@ function install_notes_cli --description "Install notes_cli" -a "target_dir" "fo
     find_and_move_binary "notes" "$target_dir"
 end
 
+function install_act --description "Install act for running local github actions" -a "target_dir" "force"
+    if command -q act; and test -z "$force"
+        echo "Skipping `act` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "nektos/act")
+    mv act*.tar.gz act.tar.gz
+    tar -xf act.tar.gz
+    find_and_move_binary "act" "$target_dir"
+end
+
 function install_powerline_go --description "Install powerline-go" -a "target_dir" "force"
     if command -q powerline-go; and test -z "$force"
         echo "Skipping `powerline-go` installation, as it is already installed."
@@ -197,6 +208,7 @@ install_powerline_go "$_flag_target_dir" "$force"
 install_starship "$_flag_target_dir" "$force"
 install_pdfcpu "$_flag_target_dir" "$force"
 install_cascadia "$force"
+install_act "$_flag_target_dir" "$force"
 install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
 install_exa "$_flag_target_dir" "$force"
