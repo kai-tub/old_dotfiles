@@ -152,6 +152,17 @@ function install_fd --description "Install `fd`" -a "target_dir" "force"
     find_and_move_binary "fd" "$target_dir"
 end
 
+function install_gh_cli --description "Install `GitHub` Cli" -a "target_dir" "force"
+    if command -q gh; and test -z "$force"
+        echo "Skipping `gh cli` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "cli/cli")
+    mv $fname gh.tar.gz
+    tar -xf gh.tar.gz
+    find_and_move_binary "gh" "$target_dir"
+end
+
 function help
     set scriptname (status -f)
     echo "$scriptname [OPTION]
@@ -212,6 +223,7 @@ install_act "$_flag_target_dir" "$force"
 install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
 install_exa "$_flag_target_dir" "$force"
+install_gh_cli "$_flag_target_dir" "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
