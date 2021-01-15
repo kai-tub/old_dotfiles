@@ -13,6 +13,7 @@ flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-
 
 # flatpak install flathub org.mozilla.firefox -y --noninteractive --user
 flatpak install flathub-beta org.mozilla.firefox -y --noninteractive --user
+flatpak install flathub org.jabref.jabref -y --noninteractive --user
 flatpak install flathub org.chromium.Chromium -y --noninteractive --user
 flatpak install flathub org.libretro.RetroArch -y --noninteractive --user
 flatpak install flathub com.spotify.Client -y --noninteractive --user

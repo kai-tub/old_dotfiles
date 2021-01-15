@@ -1,3 +1,4 @@
 {
-    "fontFamily": "CaskaydiaCove Nerd Font"
+    "fontFamily": "'CaskaydiaCove Nerd Font', 'Cascadia Code PL'",
+    "fontSize": 14,
 }
