@@ -13,4 +13,5 @@ pipx install thefuck
 pipx install youtube-dl
 pipx install black
 pipx install flake8
-
+pipx install rebiber
+pipx install betterbib
