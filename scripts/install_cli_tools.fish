@@ -58,6 +58,16 @@ function install_notes_cli --description "Install notes_cli" -a "target_dir" "fo
     find_and_move_binary "notes" "$target_dir"
 end
 
+function install_miniserve --description "Install miniserve" -a "target_dir" "force"
+    if command -q miniserve; and test -z "$force"
+        echo "Skipping `miniserve` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "svenstaro/miniserve")
+    mv miniserve* miniserve
+    find_and_move_binary "miniserve" "$target_dir"
+end
+
 function install_act --description "Install act for running local github actions" -a "target_dir" "force"
     if command -q act; and test -z "$force"
         echo "Skipping `act` installation, as it is already installed."
@@ -224,6 +234,7 @@ install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
 install_exa "$_flag_target_dir" "$force"
 install_gh_cli "$_flag_target_dir" "$force"
+install_miniserve "$_flag_target_dir" "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
