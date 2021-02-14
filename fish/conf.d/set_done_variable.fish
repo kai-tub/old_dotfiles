@@ -1,1 +1,1 @@
-set -gx __done_notify_sound 1
+set -g __done_notify_sound 1
