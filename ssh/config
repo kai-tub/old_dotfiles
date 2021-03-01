@@ -11,4 +11,8 @@ Host cluster
   User k.clasen
   ProxyJump sshgate
 
+Host erde
+  HostName erde.rsim.tu-berlin.de
+  User kaiclasen
+  ProxyJump sshgate
 
