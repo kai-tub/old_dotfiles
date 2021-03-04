@@ -173,6 +173,16 @@ function install_gh_cli --description "Install `GitHub` Cli" -a "target_dir" "fo
     find_and_move_binary "gh" "$target_dir"
 end
 
+function install_tmux --description "Install `tmux`" -a "target_dir" "force"
+    if command -q tmux; and test -z "$force"
+        echo "Skipping `tmux` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "nelsonenzo/tmux-appimage")
+    simplify_name $fname "tmux"
+    find_and_move_binary "tmux" "$target_dir"
+end
+
 function help
     set scriptname (status -f)
     echo "$scriptname [OPTION]
@@ -235,6 +245,7 @@ install_fd "$_flag_target_dir" "$force"
 install_exa "$_flag_target_dir" "$force"
 install_gh_cli "$_flag_target_dir" "$force"
 install_miniserve "$_flag_target_dir" "$force"
+install_tmux "$_flag_target_dir" "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"

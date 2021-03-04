@@ -74,3 +74,13 @@ interesting links:
 - Windows Package Manager: [Chocolatey](https://chocolatey.org/)
 - Windows 10 [Debloater script](https://github.com/Sycnex/Windows10Debloater)
 - [Windows Dev Box setup](https://github.com/Microsoft/windows-dev-box-setup-scripts) (requires admin rights)
+
+## Tmux
+I've had some issues with the default color settings on
+Ubuntu 20.04 and `tmux`:
+
+`"Error opening terminal: xterm-256color."`
+
+Answer implied from [SO](https://stackoverflow.com/a/6791510):
+
+`sudo ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color` (could maybe also just change the tmux configuration?)
