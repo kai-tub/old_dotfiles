@@ -1,87 +1,83 @@
 - clean:
-    ~/.config:
-        recursive: true
-    ~/.conda_envs:
-        force: true
-    ~/scripts:
-        force: true
+      ~/.config:
+          recursive: true
+      ~/.conda_envs:
+          force: true
+      ~/scripts:
+          force: true
 
 - defaults:
-    link:
-        create: true
-        relink: true
-    shell:
-        stdout: true
-        stderr: true
+      link:
+          create: true
+          relink: true
+      shell:
+          stdout: true
+          stderr: true
 
 - link:
-    ~/.my_bashrc:
-        path: my_bashrc
-    ~/.gitconfig: gitconfig
-    ~/.ssh/config:
-        path: ssh/config
-    ~/.config/fish/my_config.fish:
-        path: fish/my_config.fish
-    ~/.config/fish/fish_plugins:
-        path: fish/fish_plugins
-    ~/.config/fish/functions/:
-        glob: true
-        path: fish/functions/*
-    ~/.config/fish/completions/:
-        glob: true
-        path: fish/completions/*
-    ~/.config/fish/conf.d/:
-        glob: true
-        path: fish/conf.d/*
-    ~/.config/youtube-dl/config:
-        path: youtube-dl/config
-    ~/.config/terminator/config:
-        path: terminator/config
-    ~/scripts:
-        glob: true
-        path: scripts/*
-    ~/flatpak:
-        glob: true
-        path: flatpak/*
-    ~/.conda_envs:
-        glob: true
-        path: conda_envs/*
-    ~/.jupyter/lab/user-settings:
-        glob: true
-        path: jupyter_lab_user_settings/
-    ~/.config/starship.toml:
-        path: starship/starship.toml
-    ~/.config/powerline-go:
-        glob: true
-        path: powerline-go/*
-    ~/.condarc:
-        path: condarc/condarc
+      ~/.my_bashrc:
+          path: my_bashrc
+      ~/.gitconfig: gitconfig
+      ~/.ssh/config:
+          path: ssh/config
+      ~/.config/fish/my_config.fish:
+          path: fish/my_config.fish
+      ~/.config/fish/fish_plugins:
+          path: fish/fish_plugins
+      ~/.config/fish/functions/:
+          glob: true
+          path: fish/functions/*
+      ~/.config/fish/completions/:
+          glob: true
+          path: fish/completions/*
+      ~/.config/fish/conf.d/:
+          glob: true
+          path: fish/conf.d/*
+      ~/.config/youtube-dl/config:
+          path: youtube-dl/config
+      ~/.config/terminator/config:
+          path: terminator/config
+      ~/scripts:
+          glob: true
+          path: scripts/*
+      ~/flatpak:
+          glob: true
+          path: flatpak/*
+      ~/.conda_envs:
+          glob: true
+          path: conda_envs/*
+      ~/.jupyter/lab/user-settings:
+          glob: true
+          path: jupyter_lab_user_settings/
+      ~/.config/starship.toml:
+          path: starship/starship.toml
+      ~/.config/powerline-go:
+          glob: true
+          path: powerline-go/*
+      ~/.condarc:
+          path: condarc/condarc
+      ~/.tmux.conf:
+          path: tmux/tmux.conf
 
 - shell:
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
-    - >
-        git clean -f -x - d
-        update-golang
-    -
-        command: python ~/scripts/append_to_shellfile.py
+      - git submodule sync --recursive
+      - git submodule update --init --recursive
+      - >
+          git clean -f -x - d
+          update-golang
+      - command: python ~/scripts/append_to_shellfile.py
         description: "Appending to shellfile"
-    -
-        command: command -v fish &> /dev/null && fish ~/scripts/install_fish_plugins.fish # is idempotent
+      - command: command -v fish &> /dev/null && fish ~/scripts/install_fish_plugins.fish # is idempotent
         description: "Install/Update fish plugins"
         stdout: false
         stderr: false
-    -
-        command: command -v fish &> /dev/null && fish ~/scripts/install_cli_tools.fish # use -u to update
+      - command: command -v fish &> /dev/null && fish ~/scripts/install_cli_tools.fish # use -u to update
         description: "Install cli tools. Set --force to update binaries."
-    -
-        command: bash ~/scripts/miniconda_installer.sh
+      - command: bash ~/scripts/miniconda_installer.sh
         description: "Installing miniconda if not present"
         stdout: false
         stderr: false
-    -
-        command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
+      - command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
         description: ""
-    -
-        command: (false && git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git && bash nerd-fonts/install.sh CascadiaCode) || true
+      - command: (false && git clone --depth=1 https://github.com/ryanoasis/nerd-fonts.git && bash nerd-fonts/install.sh CascadiaCode) || true
         description: "Installing Nerd Fonts"
