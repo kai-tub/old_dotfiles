@@ -39,7 +39,6 @@ $nix_shell\
 $conda\
 $memory_usage\
 $aws\
-$gcloud\
 $openstack\
 $env_var\
 $crystal\
@@ -49,7 +48,7 @@ $line_break\
 $lua\
 $battery\
 $time\
-[└──](bold green) $status$jobs\
+[└──](bold green) $status$jobs \
 $character"""
 
 add_newline = false
@@ -65,7 +64,7 @@ show_notifications = true
 
 [conda]
 symbol = "○ "
-format = "[$symbol$environment]($style)"
+format = "[$symbol$environment ]($style)"
 
 [python]
 disabled = true

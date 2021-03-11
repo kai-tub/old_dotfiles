@@ -32,8 +32,15 @@ function download_latest_release --description "Download the latest GitHub Relea
     echo $url_elements[-1]
 end
 
-function find_and_move_binary -a "binary_name" "target_dir"
-    find . -name "$binary_name" -type f -exec chmod +x {} \; -exec mv {} "$target_dir" \;
+function find_and_move_binary -a "binary_name" "target_dir" "target_name"
+    set binary_files (grep -rIL .)
+    set matches (string match --entire "$binary_name" "$binary_files")
+    chmod +x $matches[1]
+    if test -z "$target_name"
+        mv $matches[1] "$target_dir"
+    else
+        mv $matches[1] "$target_dir/$target_name"
+    end
 end
 
 
@@ -41,10 +48,6 @@ function download_repo --description "Downlaod repo. Returns the name." -a "repo
     set -l url (get_release_url "$repo")
     set -l fname (download_latest_release $url)
     echo "$fname"
-end
-
-function simplify_name --description "Recurse into directory and rename input" -a inp simple_name
-    find . -name "*$inp*" -type f -exec mv {} "$simple_name" \;
 end
 
 function install_notes_cli --description "Install notes_cli" -a "target_dir" "force"
@@ -97,6 +100,7 @@ function install_starship --description "Install starship" -a "target_dir" "forc
     set -l fname (download_repo "starship/starship")
     mv $fname starship.tar.xz
     tar -xf starship.tar.xz
+    rm starship.tar.xz
     find_and_move_binary "starship" "$target_dir"
 end
 
@@ -109,6 +113,7 @@ function install_pdfcpu --description "Install pdfcpu" -a "target_dir" "force"
     set -l fname (download_repo "pdfcpu/pdfcpu")
     mv $fname pdfcpu.tar.xz
     tar -xf pdfcpu.tar.xz
+    rm pdfcpu.tar.xz
     find_and_move_binary "pdfcpu" "$target_dir"
 end
 
@@ -120,8 +125,8 @@ function install_exa --description "Install exa" -a "target_dir" "force"
     set -l fname (download_repo "ogham/exa")
     mv $fname exa.zip
     unzip exa.zip
-    simplify_name "exa" "./exa"
-    find_and_move_binary "exa" "$target_dir"
+    rm exa.zip
+    find_and_move_binary "exa" "$target_dir" "exa"
 end
 
 function install_cascadia --description "Install cascadia" -a "force"
@@ -134,6 +139,7 @@ function install_cascadia --description "Install cascadia" -a "force"
     mv $fname cascadia-code.zip
     mkdir cascadia-code
     unzip cascadia-code.zip -d cascadia-code
+    rm cascadia-code.zip
     set font_folder "$HOME/.local/share/fonts/opentype"
     mkdir -p "$font_folder"
     cp -r cascadia-code/otf/* "$font_folder"
@@ -148,6 +154,7 @@ function install_bat --description "Install `bat`" -a "target_dir" "force"
     set -l fname (download_repo "sharkdp/bat")
     mv $fname bat.tar.gz
     tar -xf bat.tar.gz
+    rm bat.tar.gz
     find_and_move_binary "bat" "$target_dir"
 end
 
@@ -158,6 +165,7 @@ function install_fd --description "Install `fd`" -a "target_dir" "force"
     end
     set -l fname (download_repo "sharkdp/fd")
     mv $fname fd.tar.gz
+    rm fd.tar.gz
     tar -xf fd.tar.gz
     find_and_move_binary "fd" "$target_dir"
 end
@@ -170,6 +178,7 @@ function install_gh_cli --description "Install `GitHub` Cli" -a "target_dir" "fo
     set -l fname (download_repo "cli/cli")
     mv $fname gh.tar.gz
     tar -xf gh.tar.gz
+    rm gh.tar.gz
     find_and_move_binary "gh" "$target_dir"
 end
 

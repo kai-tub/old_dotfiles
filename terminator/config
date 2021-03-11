@@ -15,6 +15,7 @@
   resize_down = <Primary><Alt>j
   resize_left = <Primary><Alt>h
   resize_right = <Primary><Alt>l
+  layout_launcher = <Primary><Shift><Alt>l
 [profiles]
   [[default]]
     audible_bell = True
