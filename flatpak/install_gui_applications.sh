@@ -41,3 +41,5 @@ flatpak install flathub com.github.johnfactotum.Foliate -y --noninteractive --us
 flatpak install flathub org.keepassxc.KeePassXC -y --noninteractive --user
 flatpak install flathub com.jgraph.drawio.desktop -y --noninteractive --user
 flatpak install flathub org.onionshare.OnionShare -y --noninteractive --user
+flatpak install flathub com.github.qarmin.czkawka -y --noninteractive --user
+
