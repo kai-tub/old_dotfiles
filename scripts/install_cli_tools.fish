@@ -2,7 +2,7 @@
 
 # Register tmp_dir variable to be deleted on exit
 # Used for the temporarily created directory
-function delete_on_exit --on-event "fish_exit"
+function delete_on_exit --on-event fish_exit
     if test -n "$tmp_dir"
         echo "Automatically deleting tmp dir"
         rm -rf $tmp_dir
@@ -32,7 +32,7 @@ function download_latest_release --description "Download the latest GitHub Relea
     echo $url_elements[-1]
 end
 
-function find_and_move_binary -a "binary_name" "target_dir" "target_name"
+function find_and_move_binary -a binary_name target_dir target_name
     set binary_files (grep -rIL .)
     set matches (string match --entire "$binary_name" "$binary_files")
     chmod +x $matches[1]
@@ -44,13 +44,13 @@ function find_and_move_binary -a "binary_name" "target_dir" "target_name"
 end
 
 
-function download_repo --description "Downlaod repo. Returns the name." -a "repo"
+function download_repo --description "Downlaod repo. Returns the name." -a repo
     set -l url (get_release_url "$repo")
     set -l fname (download_latest_release $url)
     echo "$fname"
 end
 
-function install_notes_cli --description "Install notes_cli" -a "target_dir" "force"
+function install_notes_cli --description "Install notes_cli" -a target_dir force
     if command -q notes; and test -z "$force"
         echo "Skipping `notes` installation, as it is already installed."
         return
@@ -58,20 +58,20 @@ function install_notes_cli --description "Install notes_cli" -a "target_dir" "fo
     set -l fname (download_repo "rhysd/notes-cli")
     mv notes*.zip notes.zip
     unzip notes.zip
-    find_and_move_binary "notes" "$target_dir"
+    find_and_move_binary notes "$target_dir"
 end
 
-function install_miniserve --description "Install miniserve" -a "target_dir" "force"
+function install_miniserve --description "Install miniserve" -a target_dir force
     if command -q miniserve; and test -z "$force"
         echo "Skipping `miniserve` installation, as it is already installed."
         return
     end
     set -l fname (download_repo "svenstaro/miniserve")
     mv miniserve* miniserve
-    find_and_move_binary "miniserve" "$target_dir"
+    find_and_move_binary miniserve "$target_dir"
 end
 
-function install_act --description "Install act for running local github actions" -a "target_dir" "force"
+function install_act --description "Install act for running local github actions" -a target_dir force
     if command -q act; and test -z "$force"
         echo "Skipping `act` installation, as it is already installed."
         return
@@ -79,20 +79,20 @@ function install_act --description "Install act for running local github actions
     set -l fname (download_repo "nektos/act")
     mv act*.tar.gz act.tar.gz
     tar -xf act.tar.gz
-    find_and_move_binary "act" "$target_dir"
+    find_and_move_binary act "$target_dir"
 end
 
-function install_powerline_go --description "Install powerline-go" -a "target_dir" "force"
+function install_powerline_go --description "Install powerline-go" -a target_dir force
     if command -q powerline-go; and test -z "$force"
         echo "Skipping `powerline-go` installation, as it is already installed."
         return
     end
     set -l fname (download_repo "justjanne/powerline-go")
     mv $fname powerline-go
-    find_and_move_binary "powerline-go" "$target_dir"
+    find_and_move_binary powerline-go "$target_dir"
 end
 
-function install_starship --description "Install starship" -a "target_dir" "force"
+function install_starship --description "Install starship" -a target_dir force
     if command -q starship; and test -z "$force"
         echo "Skipping `starship` installation, as it is already installed."
         return
@@ -101,11 +101,11 @@ function install_starship --description "Install starship" -a "target_dir" "forc
     mv $fname starship.tar.xz
     tar -xf starship.tar.xz
     rm starship.tar.xz
-    find_and_move_binary "starship" "$target_dir"
+    find_and_move_binary starship "$target_dir"
 end
 
 
-function install_pdfcpu --description "Install pdfcpu" -a "target_dir" "force"
+function install_pdfcpu --description "Install pdfcpu" -a target_dir force
     if command -q pdfcpu; and test -z "$force"
         echo "Skipping `pdfcpu` installation, as it is already installed."
         return
@@ -114,10 +114,10 @@ function install_pdfcpu --description "Install pdfcpu" -a "target_dir" "force"
     mv $fname pdfcpu.tar.xz
     tar -xf pdfcpu.tar.xz
     rm pdfcpu.tar.xz
-    find_and_move_binary "pdfcpu" "$target_dir"
+    find_and_move_binary pdfcpu "$target_dir"
 end
 
-function install_exa --description "Install exa" -a "target_dir" "force"
+function install_exa --description "Install exa" -a target_dir force
     if command -q exa; and test -z "$force"
         echo "Skipping `exa` installation, as it is already installed."
         return
@@ -126,10 +126,10 @@ function install_exa --description "Install exa" -a "target_dir" "force"
     mv $fname exa.zip
     unzip exa.zip
     rm exa.zip
-    find_and_move_binary "exa" "$target_dir" "exa"
+    find_and_move_binary exa "$target_dir" exa
 end
 
-function install_cascadia --description "Install cascadia" -a "force"
+function install_cascadia --description "Install cascadia" -a force
     set -l font (fc-list | grep -i "Cascadia")
     if test -n "$font"; and test -z "$force"
         echo "Skipping `cascadia` installation, as the font is already installed."
@@ -146,7 +146,7 @@ function install_cascadia --description "Install cascadia" -a "force"
     fc-cache -f -v
 end
 
-function install_bat --description "Install `bat`" -a "target_dir" "force"
+function install_bat --description "Install `bat`" -a target_dir force
     if command -q bat; and test -z "$force"
         echo "Skipping `bat` installation, as it is already installed."
         return
@@ -155,10 +155,10 @@ function install_bat --description "Install `bat`" -a "target_dir" "force"
     mv $fname bat.tar.gz
     tar -xf bat.tar.gz
     rm bat.tar.gz
-    find_and_move_binary "bat" "$target_dir"
+    find_and_move_binary bat "$target_dir"
 end
 
-function install_fd --description "Install `fd`" -a "target_dir" "force"
+function install_fd --description "Install `fd`" -a target_dir force
     if command -q fd; and test -z "$force"
         echo "Skipping `fd` installation, as it is already installed."
         return
@@ -167,10 +167,10 @@ function install_fd --description "Install `fd`" -a "target_dir" "force"
     mv $fname fd.tar.gz
     rm fd.tar.gz
     tar -xf fd.tar.gz
-    find_and_move_binary "fd" "$target_dir"
+    find_and_move_binary fd "$target_dir"
 end
 
-function install_gh_cli --description "Install `GitHub` Cli" -a "target_dir" "force"
+function install_gh_cli --description "Install `GitHub` Cli" -a target_dir force
     if command -q gh; and test -z "$force"
         echo "Skipping `gh cli` installation, as it is already installed."
         return
@@ -179,17 +179,31 @@ function install_gh_cli --description "Install `GitHub` Cli" -a "target_dir" "fo
     mv $fname gh.tar.gz
     tar -xf gh.tar.gz
     rm gh.tar.gz
-    find_and_move_binary "gh" "$target_dir"
+    find_and_move_binary gh "$target_dir"
 end
 
-function install_tmux --description "Install `tmux`" -a "target_dir" "force"
+function install_tmux --description "Install `tmux`" -a target_dir force
     if command -q tmux; and test -z "$force"
         echo "Skipping `tmux` installation, as it is already installed."
         return
     end
     set -l fname (download_repo "nelsonenzo/tmux-appimage")
-    simplify_name $fname "tmux"
-    find_and_move_binary "tmux" "$target_dir"
+    simplify_name $fname tmux
+    find_and_move_binary tmux "$target_dir"
+end
+
+function install_just --description "Install `just`" -a target_dir force
+    if command -q just; and test -z "$force"
+        echo "Skipping `just` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "casey/just")
+    # simplify_name $fname "tmux"
+    # find_and_move_binary "tmux" "$target_dir"
+    mv $fname just.tar.gz
+    tar -xf just.tar.gz
+    rm just.tar.gz
+    find_and_move_binary just "$target_dir"
 end
 
 function help
@@ -211,7 +225,7 @@ function help_exit
     exit 1
 end
 
-set args "h/help" "t/target-dir=" "f/force" "u/update"
+set args h/help "t/target-dir=" f/force u/update
 argparse --name=installer $args -- $argv
 or help_exit
 
@@ -255,6 +269,7 @@ install_exa "$_flag_target_dir" "$force"
 install_gh_cli "$_flag_target_dir" "$force"
 install_miniserve "$_flag_target_dir" "$force"
 install_tmux "$_flag_target_dir" "$force"
+install_just "$_flag_target_dir" "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
