@@ -1,7 +1,3 @@
-Host cluster.ml.tu-berlin.de
-  HostName cluster.ml.tu-berlin.de
-  User pml_02
-
 Host sshgate
   HostName sshgate.tu-berlin.de
   User k.clasen
@@ -15,4 +11,18 @@ Host erde
   HostName erde.rsim.tu-berlin.de
   User kaiclasen
   ProxyJump sshgate
+
+Host alba
+  HostName alba.rsim.tu-berlin.de
+  User gencersumbul
+
+Host erde_alba
+  HostName erde.rsim.tu-berlin.de
+  User kaiclasen
+  ProxyJump alba
+
+Host cluster_alba
+  HostName gateway.hpc.tu-berlin.de
+  User k.clasen
+  ProxyJump alba
 

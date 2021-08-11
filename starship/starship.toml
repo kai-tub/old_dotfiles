@@ -44,10 +44,10 @@ $env_var\
 $crystal\
 $cmd_duration\
 $custom\
-$line_break\
 $lua\
 $battery\
 $time\
+$line_break\
 [└──](bold green) $status$jobs \
 $character"""
 

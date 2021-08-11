@@ -33,8 +33,13 @@ function download_latest_release --description "Download the latest GitHub Relea
 end
 
 function find_and_move_binary -a binary_name target_dir target_name
-    set binary_files (grep -rIL .)
-    set matches (string match --entire "$binary_name" "$binary_files")
+    set -l binary_files (grep -rIL .)
+    set -l matches (string match --regex "(?:.*/)?$binary_name\$" $binary_files)
+    if test (count $matches) -ne 1
+        echo "Didn't match singleton for $binary_name"
+        echo "$matches"
+        exit 1
+    end
     chmod +x $matches[1]
     if test -z "$target_name"
         mv $matches[1] "$target_dir"
@@ -56,7 +61,7 @@ function install_notes_cli --description "Install notes_cli" -a target_dir force
         return
     end
     set -l fname (download_repo "rhysd/notes-cli")
-    mv notes*.zip notes.zip
+    mv "$fname" notes.zip
     unzip notes.zip
     find_and_move_binary notes "$target_dir"
 end
@@ -165,8 +170,8 @@ function install_fd --description "Install `fd`" -a target_dir force
     end
     set -l fname (download_repo "sharkdp/fd")
     mv $fname fd.tar.gz
-    rm fd.tar.gz
     tar -xf fd.tar.gz
+    rm fd.tar.gz
     find_and_move_binary fd "$target_dir"
 end
 
@@ -188,7 +193,7 @@ function install_tmux --description "Install `tmux`" -a target_dir force
         return
     end
     set -l fname (download_repo "nelsonenzo/tmux-appimage")
-    simplify_name $fname tmux
+    mv $fname tmux
     find_and_move_binary tmux "$target_dir"
 end
 
@@ -198,8 +203,6 @@ function install_just --description "Install `just`" -a target_dir force
         return
     end
     set -l fname (download_repo "casey/just")
-    # simplify_name $fname "tmux"
-    # find_and_move_binary "tmux" "$target_dir"
     mv $fname just.tar.gz
     tar -xf just.tar.gz
     rm just.tar.gz
@@ -261,7 +264,6 @@ install_notes_cli "$_flag_target_dir" "$force"
 install_powerline_go "$_flag_target_dir" "$force"
 install_starship "$_flag_target_dir" "$force"
 install_pdfcpu "$_flag_target_dir" "$force"
-install_cascadia "$force"
 install_act "$_flag_target_dir" "$force"
 install_bat "$_flag_target_dir" "$force"
 install_fd "$_flag_target_dir" "$force"
@@ -270,6 +272,7 @@ install_gh_cli "$_flag_target_dir" "$force"
 install_miniserve "$_flag_target_dir" "$force"
 install_tmux "$_flag_target_dir" "$force"
 install_just "$_flag_target_dir" "$force"
+install_cascadia "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
