@@ -9,10 +9,14 @@ function delete_on_exit --on-event fish_exit
     end
 end
 
-function check_fzf --description "If `fzf` not installed, install if possible"
+function check_tools
     # Get file location, install fzf if not already installed
     if ! command -q fzf
         echo "Requires `fzf` to run!"
+        exit 1
+    end
+    if ! command -q curl
+        echo "Requires `curl` to run!"
         exit 1
     end
 end
