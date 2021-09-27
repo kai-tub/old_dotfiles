@@ -7,3 +7,5 @@ function fish_user_key_bindings
         bind -M $mode \co forward-char
     end
 end
+
+fzf_key_bindings

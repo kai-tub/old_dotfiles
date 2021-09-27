@@ -11,7 +11,7 @@ RE_PATTERN = re.compile(
 
 
 def _wrap_payload(payload: str) -> str:
-    return f"{PAYLOAD_START}\n{payload}\n{PAYLOAD_END}\n"
+    return f"{PAYLOAD_START}\n{payload}\n{PAYLOAD_END}"
 
 
 def _get_bash_payload() -> str:

@@ -12,12 +12,8 @@ end
 function check_fzf --description "If `fzf` not installed, install if possible"
     # Get file location, install fzf if not already installed
     if ! command -q fzf
-        set script_loc (dirname (readlink -m (status --current-filename)))
-        set main_loc (dirname script_loc)
-        bash "$main_loc/fzf/install"
-        echo "Tried to install `fzf`"
-        echo "Run script again"
-        exit 0
+        echo "Requires `fzf` to run!"
+        exit 1
     end
 end
 
@@ -209,6 +205,34 @@ function install_just --description "Install `just`" -a target_dir force
     find_and_move_binary just "$target_dir"
 end
 
+function install_btop --description "Install `btop++`" -a target_dir force
+    if command -q btop; and test -z "$force"
+        echo "Skipping `btop` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "aristocratos/btop")
+    mv $fname btop.tar.bz
+    tar -xf btop.tar.bz
+    rm btop.tar.bz
+    find_and_move_binary btop "$target_dir"
+end
+
+function install_ventoy --description "Install `ventoy`" -a target_dir force
+    set ventoy_dir "$target_dir/ventoy"
+    if test -d "$ventoy_dir"; and test -z "$force"
+        echo "Skipping `ventoy` installation, as it is already installed."
+        return
+    end
+    if test -n "$force"
+        rm -rf "$ventoy_dir"
+    end
+    set -l fname (download_repo "ventoy/Ventoy")
+    mv $fname ventoy.tar.gz
+    tar -xf ventoy.tar.gz
+    rm ventoy.tar.gz
+    mv ventoy* "$target_dir/ventoy"
+end
+
 function help
     set scriptname (status -f)
     echo "$scriptname [OPTION]
@@ -272,6 +296,9 @@ install_gh_cli "$_flag_target_dir" "$force"
 install_miniserve "$_flag_target_dir" "$force"
 install_tmux "$_flag_target_dir" "$force"
 install_just "$_flag_target_dir" "$force"
+install_btop "$_flag_target_dir" "$force"
+install_ventoy "$_flag_target_dir" "$force"
+
 install_cascadia "$force"
 
 popd; or begin

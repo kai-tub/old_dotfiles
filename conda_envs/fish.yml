@@ -1,5 +1,0 @@
-name: fish
-channels:
-  - conda-forge
-dependencies:
-  - fish

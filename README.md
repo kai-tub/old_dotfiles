@@ -1,26 +1,16 @@
 # Dotfiles
 
-This is my collection of dotfiles and scripts.
-To run scripts located in `scripts` the following
+This repository is my collection of dotfiles and scripts.
+To run scripts located in `scripts`, the following
 packages have to be installed:
 - `git`
 - `bash`
 - `curl`
 
 ## Base Install
-1. `./install`
-1. `cd ~`
-1. `bash scripts/create_conda_envs.sh`
-1. `mkdir -p ~/bin`
-1. `cp ~/scripts/link_fish_here.sh ~/bin/link_fish_here.sh`
-1. `cd ~/bin && bash link_fish_here.sh`
-    - This is the best option for now, the next release may include an `AppImage`
-1. `bash ~/scripts/install_pipx_tools.sh`
-    - Requires conda to be installed first!
-1. `install_lab_extensions.sh` to desired environments
-1. Re-run `./install` to run following commands:
-    - `fish scripts/install_fish_plugins.fish`
-    - `fish scripts/install_cli_tools.fish`
+1. Simply run `./install`
+
+Note: Installer will also try to install Cascadia Font.
 
 ## Admin Install
 If root privileges are available, first install `flatpak`:
@@ -30,7 +20,7 @@ sudo add-apt-repository ppa:alexlarsson/flatpak
 sudo apt-get update
 sudo apt-get install flatpak
 ```
-Then run `bash flatpak/install_gui_applications` to install all GUI applications. (Doesn't require root)
+Then re-run `./install` to install all GUI applications. (Doesn't require root)
 
 Do not forget to add `megasync` to the autostart configuration, if desired:
 ```bash
@@ -38,7 +28,7 @@ mkdir -p ~/config/autostart/
 ln -s /var/lib/flatpak/exports/share/applications/nz.mega.MEGAsync.desktop ~/.config/autostart/
 ```
 
-Other applications that require root rights, are:
+Other applications that require root rights are:
 ```bash
 sudo apt-get install terminator
 sudo apt-get install git # if necessary
@@ -59,13 +49,7 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 - `gs` runs the interactive `git status` with file preview.
 - `sv` searches fish variables
 
-## Some interesting tools
-Here is a list of some interesting tools, that require some more steps to set up properly, but
-that are either quite helpful, or were eye-opening:
-- [GHunt](https://github.com/mxrch/GHunt)
-
 ## Tools that require docker
-All of these tools have fish aliases
 - [Sherlock](https://github.com/sherlock-project/sherlock)
 
 ## Windows
@@ -81,6 +65,6 @@ Ubuntu 20.04 and `tmux`:
 
 `"Error opening terminal: xterm-256color."`
 
-Answer implied from [SO](https://stackoverflow.com/a/6791510):
+The answer implied from [SO](https://stackoverflow.com/a/6791510):
 
 `sudo ln -sf /usr/share/terminfo/x/xterm-color /usr/share/terminfo/x/xterm-256color` (could maybe also just change the tmux configuration?)

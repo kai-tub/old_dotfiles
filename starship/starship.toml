@@ -51,6 +51,8 @@ $line_break\
 [└──](bold green) $status$jobs \
 $character"""
 
+command_timeout = 30000
+
 add_newline = false
 
 [character]
