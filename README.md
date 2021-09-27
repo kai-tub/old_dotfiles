@@ -1,14 +1,14 @@
 # Dotfiles
 
 This repository is my collection of dotfiles and scripts.
-To run scripts located in `scripts`, the following
+To run scripts located in `scripts,` the following
 packages have to be installed:
 - `git`
 - `bash`
 - `curl`
 
 ## Base Install
-1. Simply run `./install`
+1. Simply run `./install` (2x for first install!)
 
 Note: Installer will also try to install Cascadia Font.
 
@@ -44,10 +44,11 @@ sudo update-alternatives --config x-terminal-emulator # Set default terminal to 
 ```
 
 ## Fish command abbreviations
-- `Ctrl+F` or `s` (search) to search recursively through the current directory with file preview.
+- `Ctrl+F` to search recursively through the current directory with file preview.
 - `f` runs `thef***` command.
-- `gs` runs the interactive `git status` with file preview.
-- `sv` searches fish variables
+- `Ctrl+S` runs the interactive `git status` preview.
+- `Ctrl+V` searches fish variables
+- `u` updates most installed packages
 
 ## Tools that require docker
 - [Sherlock](https://github.com/sherlock-project/sherlock)
