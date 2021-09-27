@@ -151,6 +151,21 @@ function install_cascadia --description "Install cascadia" -a force
     fc-cache -f -v
 end
 
+function install_caskaydia -a force
+    set -l font (fc-list | grep -i "Caskaydia")
+    if test -n "$font"; and test -z "$force"
+        echo "Skipping `Caskaydia`"
+    end
+    set -l fname (download_repo "ryanoasis/nerd-fonts")
+    unzip $fname -d font
+    rm $fname
+    set font_folder "$HOME/.local/share/fonts/"
+    mkdir -p "$font_folder"
+    cp -r font/*.ttf "$font_folder"
+    fc-cache -f -v
+end
+
+
 function install_bat --description "Install `bat`" -a target_dir force
     if command -q bat; and test -z "$force"
         echo "Skipping `bat` installation, as it is already installed."
@@ -304,6 +319,7 @@ install_btop "$_flag_target_dir" "$force"
 install_ventoy "$_flag_target_dir" "$force"
 
 install_cascadia "$force"
+install_caskaydia "$force"
 
 popd; or begin
     error "Couldn't pop from directory stack"
