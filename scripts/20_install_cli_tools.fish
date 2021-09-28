@@ -281,7 +281,7 @@ if set -q _flag_help
     exit 0
 end
 
-check_fzf
+check_tools
 
 if test -z "$_flag_force"; and test -z "$_flag_update"
     set force
