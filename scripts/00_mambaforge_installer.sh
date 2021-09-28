@@ -34,3 +34,7 @@ fi
 
 bash Mambaforge.sh -b -p "$target_dir"
 mamba_init
+
+echo "Need to restart shell for changes to take effect!" >&2
+# used to halt installation pipeline
+exit 1
