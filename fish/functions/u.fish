@@ -15,6 +15,10 @@ function u
     end
 
     if command -q mamba
-        mamba update --name base mamba
+        mamba update --name base mamba -y
+    end
+
+    if command -q snap
+        sudo snap refresh
     end
 end

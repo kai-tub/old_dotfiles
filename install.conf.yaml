@@ -66,8 +66,10 @@
         description: "Appending custom shell init scripts."
       - command: fish scripts/20_install_cli_tools.fish
         description: "Interactively install all cli tools."
+      - command: fish scripts/25_install_fish_plugins.fish
       - command: fish flatpak/install_flatpak_applications.fish
         description: "Install flatpak applications but do not error if flatpak is not installed"
-      - command: fish scripts/25_install_fish_plugins.fish
+      - command: fish snap/install_snap_applications.fish
+        description: "Install snap applications but do not error if snap is not installed"
       #   - command: echo 'To update/install "golang" run "update-golang.sh" script with "sudo"'
       #     description: ""
