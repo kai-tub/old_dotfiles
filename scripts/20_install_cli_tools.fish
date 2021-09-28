@@ -155,6 +155,7 @@ function install_caskaydia -a force
     set -l font (fc-list | grep -i "Caskaydia")
     if test -n "$font"; and test -z "$force"
         echo "Skipping `Caskaydia`"
+        return
     end
     set -l fname (download_repo "ryanoasis/nerd-fonts")
     unzip $fname -d font
