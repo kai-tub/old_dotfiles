@@ -8,11 +8,10 @@ if ! command -q flatpak
     exit 0
 end
 
-# flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-# flatpak remote-add --user --if-not-exists flathub-beta https://flathub.org/beta-repo/flathub-beta.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 function install_flathub -a name
-   flatpak install flathub "$name" -y --noninteractive --user
+    flatpak install flathub "$name" -y --noninteractive --user
 end
 
 function install_list
@@ -65,8 +64,7 @@ set tools \
     # Screen Recorder
     com.uploadedlobster.peek \
     com.todoist.Todoist \
-    org.jabref.jabref \
-
+    org.jabref.jabref
 install_list $tools
 
 flatpak update -y
