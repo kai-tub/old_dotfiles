@@ -1,7 +1,7 @@
 # Dotfiles
 
 This repository is my collection of dotfiles and scripts.
-To run scripts located in `scripts,` the following
+To run scripts located in `scripts`, the following
 packages have to be installed:
 - `git`
 - `bash`
