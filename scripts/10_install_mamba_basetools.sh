@@ -33,4 +33,4 @@ install_vim(){
 
 install_fish
 install_pipx
-install_vim
+# install_vim # this will also install perl and overwrite the system perl verison! Will cause issues with latexident because it probably uses a newer perl version!
