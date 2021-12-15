@@ -64,7 +64,10 @@ set tools \
     # Screen Recorder
     com.uploadedlobster.peek \
     com.todoist.Todoist \
-    org.jabref.jabref
+    org.jabref.jabref \
+    # Tool to easily set flatpak permissions
+    com.github.tchx84.Flatseal
+
 install_list $tools
 
 flatpak update -y
