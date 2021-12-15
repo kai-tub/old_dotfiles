@@ -49,6 +49,8 @@
           path: condarc/condarc
       ~/.tmux.conf:
           path: tmux/tmux.conf
+      ~/.xsessionrc:
+          path: keyboard/xsessionrc
 
 - shell:
       - git submodule sync --recursive
