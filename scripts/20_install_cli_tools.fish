@@ -237,6 +237,18 @@ function install_btop --description "Install `btop++`" -a target_dir force
     find_and_move_binary btop "$target_dir"
 end
 
+function install_lazygit --description "Install `lazygit`" -a target_dir force
+    if command -q lazygit; and test -z "$force"
+        echo "Skipping `lazygit` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "jesseduffield/lazygit")
+    mv $fname lazygit.tar.bz
+    tar -xf lazygit.tar.bz
+    rm lazygit.tar.bz
+    find_and_move_binary lazygit "$target_dir"
+end
+
 function install_ventoy --description "Install `ventoy`" -a target_dir force
     set ventoy_dir "$target_dir/ventoy"
     if test -d "$ventoy_dir"; and test -z "$force"
@@ -317,6 +329,7 @@ install_miniserve "$_flag_target_dir" "$force"
 install_tmux "$_flag_target_dir" "$force"
 install_just "$_flag_target_dir" "$force"
 install_btop "$_flag_target_dir" "$force"
+install_lazygit "$_flag_target_dir" "$force"
 install_ventoy "$_flag_target_dir" "$force"
 
 install_cascadia "$force"

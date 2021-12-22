@@ -10,6 +10,10 @@ Host cluster
 Host erde
   HostName erde.rsim.tu-berlin.de
   User kaiclasen
+
+Host erde_sshgate
+  HostName erde.rsim.tu-berlin.de
+  User kaiclasen
   ProxyJump sshgate
 
 Host alba
