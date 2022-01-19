@@ -87,6 +87,17 @@ function install_act --description "Install act for running local github actions
     find_and_move_binary act "$target_dir"
 end
 
+function install_duf --description "Install duf" -a target_dir force
+    if command -q duf; and test -z "$force"
+        echo "Skipping `duf` installation, as it is already installed."
+        return
+    end
+    set -l fname (download_repo "muesli/duf")
+    mv duf*.tar.gz duf.tar.gz
+    tar -xf duf.tar.gz
+    find_and_move_binary duf "$target_dir"
+end
+
 function install_powerline_go --description "Install powerline-go" -a target_dir force
     if command -q powerline-go; and test -z "$force"
         echo "Skipping `powerline-go` installation, as it is already installed."
@@ -331,6 +342,7 @@ install_just "$_flag_target_dir" "$force"
 install_btop "$_flag_target_dir" "$force"
 install_lazygit "$_flag_target_dir" "$force"
 install_ventoy "$_flag_target_dir" "$force"
+install_duf "$_flag_target_dir" "$force"
 
 install_cascadia "$force"
 install_caskaydia "$force"

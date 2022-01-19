@@ -1,5 +1,9 @@
-changeps1: false
+
 channels:
-  - conda-forge
-  - nodefaults
-channel_priority: strict
+ - conda-forge
+
+conda-build:
+ root-dir: /home/conda/staged-recipes/build_artifacts
+
+show_channel_urls: true
+
