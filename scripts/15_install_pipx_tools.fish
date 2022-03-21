@@ -46,6 +46,8 @@ set pipxtools \
     flake8 \
     rebiber \
     betterbib \
+    rich-cli \
+    nbpreview \
     httpie==http
 
 if set -q _flag_upgrade
